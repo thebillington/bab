@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html style="overflow:hidden;">
+  <head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
+    <script src="game.js"></script>
+	<title>Machine Code Programming</title>
+  </head>
+  <style>
+	canvas {
+		border: 2px solid black;
+	}
+  </style>
+  <body style="overflow:hidden; margin: 0; display: flex; justify-content: center; align-items: center; padding-top: 2%;">
+    	<div style="display: block; text-align: right; margin-right: 50px;">
+		<p>EDITOR</p>
+		<p><textarea disabled cols="1" rows="32" style="overflow: none; text-align: right; resize: none;">1&#13;2&#13;3&#13;4&#13;5&#13;6&#13;7&#13;8&#13;9&#13;10&#13;11&#13;12&#13;13&#13;14&#13;15&#13;16&#13;17&#13;18&#13;19&#13;20&#13;21&#13;22&#13;23&#13;24&#13;25&#13;26&#13;27&#13;28&#13;29&#13;30&#13;31&#13;32</textarea><textarea id="code" onclick="edit()" cols="20" rows="32" style="overflow: none; resize: none;"></textarea><textarea id="assembled" disabled cols="8" rows="32" style="overflow: none; resize: none;"></textarea></p>
+		<p>
+			Execution Speed: <select id="speed" onchange="speed()">
+				<option value="1000">Turtle</option>
+				<option value="500">Slow</option>
+				<option value="200">Medium</option>
+				<option value="50">Fast</option>
+				<option value="10">Insane</option>
+			</select>
+		</p>
+		<p>
+			<input onclick="op('binary')" type="radio" id="binary" name="codeType" value="binary" checked><label for="codeType">Binary</label>
+			<input onclick="op('hex')" type="radio" id="hexadec" name="codeType" value="hex"><label for="codeType">Hex</label>
+			<input onclick="op('assembly')" type="radio" id="assembly" name="codeType" value="assembly"><label for="codeType">Assembly</label>
+		</p>
+		<p>
+			<button onclick="assemble()">ASSEMBLE</button>
+			<button onclick="execute(0)">RUN</button>
+			<button onclick="reset()">RESET</button>
+			<a href="manual.pdf" target="_blank"><button>HELP</button></a>
+		</p>
+		<p><a href="editor.html" target="_blank">Try the level editor (pre-alpha)</a></p>
+	</div>
+	<div id="cnv" style="text-align:center;"><h1>Binary Assembler Bot (Pre-Alpha 1.0)</h1></div>
+	<div style="display: block; margin-left: 50px;">
+		<p>CONSOLE</p>
+		<p><textarea id="console" disabled cols="32" rows="30" style="overflow-x: none; overflow-y: scroll; resize: none;"></textarea></p>
+		<p><button onclick="clearConsole()">CLEAR</button></p>
+	</div>
+  </body>
+</html>
