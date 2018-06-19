@@ -6,14 +6,14 @@ var gridSize = 16;
 var backgroundColour;
 
 // Player variables
-var player, playerX, playerY, playerW, playerH;
+var player, playerX = 0, playerY = 0, playerW, playerH;
 
 // Store the selection mode
 var mode;
 
 // Variable to hold the location of the goal
-var goalX;
-var goalY;
+var goalX = 15;
+var goalY = 15;
 
 // Variable to hold the walls
 var walls;
@@ -267,4 +267,27 @@ function mouseReleased() {
 		
 	}
 	
+}
+
+// Function to test the level
+function testLevel() {
+    
+    // Get the data for the window
+    var data = ["0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000x", "0000000000000000"];
+    
+    // Add the walls to the string (super hacky but works)
+    for (var i = 0; i < walls.length; i++) {
+        data[walls[i][1]] = data[walls[i][1]].substring(0,[walls[i][0]]) + "1" + data[walls[i][1]].substring(walls[i][0]+1,data[walls[i][0]].length+1);
+    }
+    
+    // Set the goal location
+    data[goalY] = data[goalY].substring(0,goalX) + "2" + data[goalY].substring(goalX+1,data[goalY].length+1);
+    
+    // Set the player location
+    data[playerY] = data[playerY].substring(0,playerX) + "3" + data[playerY].substring(playerX+1,data[playerY].length+1);
+    
+    // Open the new window
+    var win = window.open("index.html?ld=" + data.join(""), "_blank");
+    win.focus();
+    
 }

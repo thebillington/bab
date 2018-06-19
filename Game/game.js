@@ -66,9 +66,6 @@ function setup() {
     // Check whether there is a level in the url params
     checkURLData();
 	
-	// Load the level
-	//openLevel("levelOne.txt");
-	
 }
 
 // Update function

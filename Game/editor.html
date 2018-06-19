@@ -8,9 +8,14 @@
 	<title>BAB Level Editor</title>
   </head>
   <style>
-	canvas {
-		border: 2px solid black;
-	}
+      canvas {
+          border: 2px solid black;
+      }
+      a:not([href]) {
+          color: blue;
+          text-decoration: underline;
+          cursor: pointer;
+      }
   </style>
   <body style="overflow:hidden; margin: 0; display: flex; justify-content: center; align-items: center; padding-top: 2%;">
 	<div id="cnv" style="text-align:center;"><h1>BAB Editor (Pre-Alpha 1.0)</h1></div>
@@ -19,6 +24,7 @@
 		<p><button onclick="selectMode('player')">SET PLAYER LOCATION</button></p>
 		<p><button onclick="selectMode('wall')">BUILD WALLS</button></p>
 		<p><button onclick="selectMode('goal')">SET GOAL LOCATION</button></p>
+        <p onclick="testLevel()"><a>Test Level</a></p>
 	</div>
   </body>
 </html>
