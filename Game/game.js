@@ -62,9 +62,12 @@ function setup() {
 	
 	// Create an empty list of walls
 	walls = [];
+    
+    // Check whether there is a level in the url params
+    checkURLData();
 	
 	// Load the level
-	openLevel("levelOne.txt");
+	//openLevel("levelOne.txt");
 	
 }
 

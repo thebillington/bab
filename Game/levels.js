@@ -1,3 +1,24 @@
+// Function to check whether there is level data in the url
+function checkURLData() {
+    
+    // Fetch the level data parameter
+    var data = new URL(window.location.href).searchParams.get('ld');
+    
+    // Check if there is data
+    if (data != null) {
+        
+        // Load the level from the level data
+        loadLevel(data.split("x"));
+        
+    }
+    
+    // Otherwise load an empty level
+    else {
+        openLevel("levelOne.txt");
+    }
+    
+}
+
 //Create a function to load in from file
 function openLevel(levelName) {
     
@@ -18,8 +39,8 @@ function openLevel(levelName) {
             //If fetching was successful
             if(client.status == 200) {
                 
-                //Open the level
-                var levelText = client.responseText;
+                //Open the level and strip whitespace
+                var levelText = client.responseText.replace(/\s/g,'');
                 loadLevel(levelText.split("x"));
 				
             } else {
@@ -47,7 +68,7 @@ function loadLevel(data) {
 			if (d == "1") {
 				
 				// Add a wall
-				walls.push([j-2,i]);
+				walls.push([j,i]);
 				
 			}
 			
@@ -55,7 +76,7 @@ function loadLevel(data) {
 			else if (d == "2") {
 				
 				// Set the goal location
-				goalX = j - 2;
+				goalX = j;
 				goalY = i;
 
 			}
