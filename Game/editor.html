@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html style="overflow:hidden;">
+  <head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
+    <script src="edit.js"></script>
+	<title>BAB Level Editor</title>
+  </head>
+  <style>
+	canvas {
+		border: 2px solid black;
+	}
+  </style>
+  <body style="overflow:hidden; margin: 0; display: flex; justify-content: center; align-items: center; padding-top: 2%;">
+	<div id="cnv" style="text-align:center;"><h1>BAB Editor (Pre-Alpha 1.0)</h1></div>
+	<div style="display: block; margin-left: 50px;">
+		<p id="mode">Current mode: PLAYER</p>
+		<p><button onclick="selectMode('player')">SET PLAYER LOCATION</button></p>
+		<p><button onclick="selectMode('wall')">BUILD WALLS</button></p>
+		<p><button onclick="selectMode('goal')">SET GOAL LOCATION</button></p>
+	</div>
+  </body>
+</html>
